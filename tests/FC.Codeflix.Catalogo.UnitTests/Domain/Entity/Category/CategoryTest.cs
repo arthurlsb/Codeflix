@@ -1,6 +1,5 @@
 ﻿using FC.Codeflix.Catalog.Domain.Exceptions;
 using FluentAssertions;
-using System.Xml.Linq;
 using Xunit;
 using DomainEntity = FC.Codeflix.Catalog.Domain.Entity;
 
