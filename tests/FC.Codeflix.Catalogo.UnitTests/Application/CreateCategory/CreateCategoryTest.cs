@@ -1,4 +1,5 @@
 using FC.Codeflix.Catalog.Domain.Entity;
+using FC.Codeflix.Catalog.Domain.Repository;
 using Moq;
 using Xunit;
 using FluentAssertions;
@@ -12,7 +13,7 @@ public class CreateCategoryTest
     [Trait("Application", "CreateCategory - Use cases")]
     public async void  CreateCategory()
     {
-        var repositoryMock = new Mock<ICategoryRespository>();
+        var repositoryMock = new Mock<ICategoryRepository>();
         var unitOfWorkMock = new Mock<IUnitOfWork>();
         var useCase = new UseCases.CreateCategory(repositoryMock.Object, unitOfWorkMock.Object);
 
@@ -24,7 +25,9 @@ public class CreateCategoryTest
         var output = await useCase.Handle(input, CancellationToken.None);
         
         repositoryMock.Verify(
-            repository => repository.Create(It.IsAny<Category>(), It.IsAny<CancellationToken>()), 
+            repository => repository.Insert(
+                It.IsAny<Category>(), It.IsAny<CancellationToken>()
+            ), 
             Times.Once
         );       
         
