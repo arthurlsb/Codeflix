@@ -44,13 +44,10 @@ public class Category : AggregateRoot
 
     private void Validate()
     {
-
         DomainValidation.NotNullOrEmpty(Name, nameof(Name));
         DomainValidation.MinLength(Name, 3, nameof(Name));
         DomainValidation.MaxLength(Name, 255, nameof(Name));
-
         DomainValidation.NotNull(Description, nameof(Description));
         DomainValidation.MaxLength(Description, 10000, nameof(Description));
-        
     }
 }

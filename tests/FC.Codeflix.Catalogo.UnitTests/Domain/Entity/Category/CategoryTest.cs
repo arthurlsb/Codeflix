@@ -234,7 +234,6 @@ public class CategoryTest
         }
     }
     
-
     [Fact(DisplayName = nameof(UpdateErrorWhenNameIsGreaterThan255Characters))]
     [Trait("Domain", "Category - Aggregates")]
     public void UpdateErrorWhenNameIsGreaterThan255Characters()
@@ -269,5 +268,4 @@ public class CategoryTest
             .Throw<EntityValidationException>()
             .WithMessage("Description should be less or equal 10000 characters long");
     }
-
 }
