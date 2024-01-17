@@ -19,7 +19,7 @@ public class CreateCategoryTest
 
     [Fact(DisplayName = nameof(CreateCategory))]
     [Trait("Application", "CreateCategory - Use cases")]
-    public async void  CreateCategory()
+    public async void CreateCategory()
     {
         var repositoryMock = _fixture.GetRepositoryMock();
         var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
@@ -33,15 +33,14 @@ public class CreateCategoryTest
         
         repositoryMock.Verify(
             repository => repository.Insert(
-                It.IsAny<Category>(), It.IsAny<CancellationToken>()
-            ), 
-            Times.Once
-        );       
+                It.IsAny<Category>(), 
+                It.IsAny<CancellationToken>()
+        ), Times.Once);       
         
         unitOfWorkMock.Verify(
-            uow => uow.Commit(It.IsAny<CancellationToken>()), 
-            Times.Once
-        );
+            uow => uow.Commit(
+            It.IsAny<CancellationToken>()
+        ), Times.Once);
 
         output.Should().NotBeNull();
         output.Name.Should().Be(input.Name);
@@ -53,7 +52,7 @@ public class CreateCategoryTest
 
     [Fact(DisplayName = nameof(CreateCategoryWithOnlyName))]
     [Trait("Application", "CreateCategory - Use cases")]
-    public async void  CreateCategoryWithOnlyName()
+    public async void CreateCategoryWithOnlyName()
     {
         var repositoryMock = _fixture.GetRepositoryMock();
         var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
@@ -87,7 +86,7 @@ public class CreateCategoryTest
     
     [Fact(DisplayName = nameof(CreateCategoryWithOnlyNameAndDescription))]
     [Trait("Application", "CreateCategory - Use cases")]
-    public async void  CreateCategoryWithOnlyNameAndDescription()
+    public async void CreateCategoryWithOnlyNameAndDescription()
     {
         var repositoryMock = _fixture.GetRepositoryMock();
         var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
