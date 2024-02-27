@@ -9,6 +9,4 @@ public abstract class BaseFixture
     {
         Faker = new Faker("pt_BR");
     }
-
-    
 }
