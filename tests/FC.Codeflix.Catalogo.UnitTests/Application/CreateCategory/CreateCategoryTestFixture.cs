@@ -35,10 +35,10 @@ public class CreateCategoryTestFixture : BaseFixture
         return categoryDescription;
     }
 
-    public bool getRandomBoolean() => new Random().NextDouble() < 0.5;
+    public bool GetRandomBoolean() => new Random().NextDouble() < 0.5;
 
     public CreateCategoryInput GetInput() =>
-        new CreateCategoryInput(GetValidCategoryName(), GetValidCategoryDescription(), getRandomBoolean());
+        new CreateCategoryInput(GetValidCategoryName(), GetValidCategoryDescription(), GetRandomBoolean());
 
     public CreateCategoryInput GetInvalidInputShortName()
     {
