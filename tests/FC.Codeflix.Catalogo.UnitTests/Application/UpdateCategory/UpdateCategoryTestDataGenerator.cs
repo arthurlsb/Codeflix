@@ -1,6 +1,3 @@
-
-using FC.Codeflix.Catalog.Application.UseCases.Category.UpdateCategory;
-
 namespace FC.Codeflix.Catalog.UnitTests.Application.UpdateCategory;
 
 public class UpdateCategoryTestDataGenerator
@@ -13,12 +10,7 @@ public class UpdateCategoryTestDataGenerator
         {
             var exampleCategory = fixture.GetExampleCategory();
 
-            var exampleInput = new UpdateCategoryInput(
-                exampleCategory.Id,
-                fixture.GetValidCategoryName(),
-                fixture.GetValidCategoryDescription(),
-                fixture.GetRandomBoolean()
-            );
+            var exampleInput = fixture.GetValidInput(exampleCategory.Id);
 
             yield return new object[]
             {
