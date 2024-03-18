@@ -1,4 +1,5 @@
 using FC.Codeflix.Catalog.Domain.Entity;
+using FC.Codeflix.Catalog.Domain.SeedWork.SearchableRepository;
 using Moq;
 using Xunit;
 
@@ -27,11 +28,11 @@ public class ListCategoriesTest
             sort: "name",
             dir: SearchOrder.Asc
         );
-        var outputRepositorySearch = new OutputSearch<Category>(
+        var outputRepositorySearch = new SearchOutput<Category>(
             currentPage: input.Page,
             perPage: input.PerPage,
-            Items: (IReadOnlyList<Category>)categoriesExampleList,
-            Total: 70
+            items: (IReadOnlyList<Category>)categoriesExampleList,
+            total: 70
         );
         repositoryMock.Setup(x => x.Search(
             It.Is<SearchInput>(
